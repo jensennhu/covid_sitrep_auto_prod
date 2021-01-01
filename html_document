@@ -1,0 +1,645 @@
+---
+title: "R Notebook"
+output: html_document
+---
+
+
+
+
+
+Good Morning:
+
+This is your daily COVID-19 report, sent on Thursday, December 24, 2020 at 10:04 PM (PST). Shown below is a current **draft** in continual development and error checking. Please feel free to reach out with suggestions or issues!
+
+---
+
+## USA Overall{.tabset .tabset-pills}
+
+> As of yesterday, there has been a total of 18,512,479 cases of COVID-19 in the USA. This is a change of 227,750 (1.25%) new cases since the day prior. The 7 day moving average is currently 2.135e+05 new cases which is a -1.14% change since the day prior and -3.36% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, there was not a recent (within 3 days) inflection point (days since last inflection point: 8 --> 2020-12-16).
+
+#### 7-day moving average of new cases and deaths in the US (2020-01-21 to 2020-12-23)
+<img src="figure/fig1-1.png" title="plot of chunk fig1" alt="plot of chunk fig1" style="display: block; margin: auto;" />
+
+### Hospital Status
+ 
+
+> The following illustrates the current situation in hospitals in the USA. On average, the stress on intensive care units (ICUs) across the country is *extreme* and the usage of inpatient centers by covid-19 patients is *high*.
+
+
+
+<center>
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+</center>
+
+
+### Region by Region {.tabset .tabset-pills}
+
+#### west
+<center>
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+</center>
+
+
+<center>
+
+<table class="table table-condensed">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:right;"> Cases per 100,000 </th>
+   <th style="text-align:right;"> Trend </th>
+   <th style="text-align:center;"> ICU Stress </th>
+   <th style="text-align:center;"> Inpatient Hospital Usage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">California</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 100px">108</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Arizona   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 86.1111111111111px">93</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Utah      </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 75px">81</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Nevada    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 72.2222222222222px">78</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Idaho     </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 67.5925925925926px">73</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">New Mexico</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 56.4814814814815px">61</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Wyoming   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 52.7777777777778px">57</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Montana   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 49.0740740740741px">53</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Colorado  </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 47.2222222222222px">51</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Alaska    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 41.6666666666667px">45</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Washington</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 36.1111111111111px">39</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Oregon    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 27.7777777777778px">30</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Hawaii    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 8.33333333333333px">9</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low     </span> </td>
+  </tr>
+</tbody>
+</table>
+</center>
+
+#### south
+<center>
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+</center>
+
+<center>
+
+<table class="table table-condensed">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:right;"> Cases per 100,000 </th>
+   <th style="text-align:right;"> Trend </th>
+   <th style="text-align:center;"> ICU Stress </th>
+   <th style="text-align:center;"> Inpatient Hospital Usage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Tennessee           </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 100px">121</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Oklahoma            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 72.7272727272727px">88</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Alabama             </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 70.2479338842975px">85</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Arkansas            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 65.2892561983471px">79</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">West Virginia       </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 57.8512396694215px">70</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Mississippi         </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 57.8512396694215px">70</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Georgia             </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.7190082644628px">65</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">South Carolina      </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.7190082644628px">65</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Delaware            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.7190082644628px">65</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">North Carolina      </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 52.0661157024793px">63</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Kentucky            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 50.4132231404959px">61</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Texas               </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 50.4132231404959px">61</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Florida             </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 46.2809917355372px">56</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Louisiana           </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 46.2809917355372px">56</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Virginia            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 38.0165289256198px">46</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Maryland            </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 31.404958677686px">38</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">District of Columbia</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 28.9256198347107px">35</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high   </span> </td>
+  </tr>
+</tbody>
+</table>
+</center>
+
+#### midwest
+<center>
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+</center>
+
+<center>
+
+<table class="table table-condensed">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:right;"> Cases per 100,000 </th>
+   <th style="text-align:right;"> Trend </th>
+   <th style="text-align:center;"> ICU Stress </th>
+   <th style="text-align:center;"> Inpatient Hospital Usage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Indiana     </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 100px">77</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Ohio        </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 96.1038961038961px">74</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Kansas      </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 94.8051948051948px">73</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">South Dakota</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 74.025974025974px">57</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Nebraska    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 71.4285714285714px">55</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Wisconsin   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 71.4285714285714px">55</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Illinois    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.8311688311688px">53</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Missouri    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.8311688311688px">53</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Iowa        </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 67.5324675324675px">52</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Minnesota   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 54.5454545454545px">42</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">North Dakota</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 49.3506493506493px">38</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Michigan    </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 48.0519480519481px">37</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+</tbody>
+</table>
+</center>
+
+
+#### northeast
+<center>
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+</center>
+
+<center>
+
+<table class="table table-condensed">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> State </th>
+   <th style="text-align:right;"> Cases per 100,000 </th>
+   <th style="text-align:right;"> Trend </th>
+   <th style="text-align:center;"> ICU Stress </th>
+   <th style="text-align:center;"> Inpatient Hospital Usage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Rhode Island </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 100px">79</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Pennsylvania </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 87.3417721518987px">69</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Massachusetts</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 84.8101265822785px">67</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">New Hampshire</span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 69.620253164557px">55</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">New York     </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 67.0886075949367px">53</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Connecticut  </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 64.5569620253165px">51</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #CD4071FF; width: 70px">high    </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">New Jersey   </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 60.7594936708861px">48</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Maine        </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 43.0379746835443px">34</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #ff7f7f">
+  <i class="glyphicon glyphicon-arrow-up"></i>
+  rising
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">moderate</span> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> <span style="color: grey; font-weight: bold">Vermont      </span> </td>
+   <td style="text-align:right;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 18.9873417721519px">15</span> </td>
+   <td style="text-align:right;"> <span style="font-weight: bold; color: #71CA97">
+  <i class="glyphicon glyphicon-arrow-down"></i>
+  decreasing
+</span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #9F2F7FFF; width: 70px">extreme </span> </td>
+   <td style="text-align:center;"> <span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low     </span> </td>
+  </tr>
+</tbody>
+</table>
+</center>
+
+
+Resources to check out:
+
+*  [See How All 50 States Are Reopening (and Closing Again)](https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html)
+*  [NYtimes Visualizations for Case Tracking in U.S.](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html)
+*  [Coronavirus Drug and Treatment Tracker](https://www.nytimes.com/interactive/2020/science/coronavirus-drugs-treatments.html)
+*  [Coronavirus Vaccine Tracker](https://www.nytimes.com/interactive/2020/science/coronavirus-vaccine-tracker.html)
+
+---
