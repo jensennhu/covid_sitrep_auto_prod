@@ -1,0 +1,4 @@
+@echo off
+"C:\Program Files\R\R-4.0.3\bin\R.exe" CMD BATCH "C:\Users\jense\Desktop\Projects\covid_email_report_production\test_automation\send_email.R"
+CD "C:\Users\jense\Desktop\Projects\covid_email_report_production\test_automation\docs"
+CALL "C:\Users\jense\Desktop\Projects\covid_email_report_production\test_automation\docs\update.bat"
