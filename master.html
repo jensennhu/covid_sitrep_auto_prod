@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>COVID-19 Report Interactive</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.16/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">COVID-19 Report Interactive</h1>
+
+</div>
+
+
+<div id="updated-as-of-monday-january-4-2021-at-250-pm-pst" class="section level3">
+<h3>Updated as of Monday, January 4, 2021 at 2:50 PM (PST)</h3>
+<p>Good Day:</p>
+<p>Shown below is a current <strong>draft</strong> in continual development and error checking. Please feel free to reach out with suggestions or issues!</p>
+<hr />
+</div>
+<div id="section" class="section level2 tabset tabset-fade">
+<h2></h2>
+<div id="usa-overall" class="section level3">
+<h3>USA Overall</h3>
+<blockquote>
+<p>As of yesterday, there has been a total of 20,666,746 cases of COVID-19 in the USA. This is a change of 201,980 (0.99%) new cases since the day prior. The 7 day moving average is currently 2.127e+05 new cases which is a -1.66% change since the day prior and 17.94% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday’s data, yesterday was not an inflection point (days since last inflection point: 3 –&gt; 2021-01-01).</p>
+</blockquote>
+<div id="day-moving-average-of-new-cases-in-the-us-2020-01-21-to-2021-01-03" class="section level4">
+<h4><strong>7-day moving average of new cases in the US (2020-01-21 to 2021-01-03)</strong></h4>
+<p><img src="master_files/figure-html/fig1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="state-summaries-beta" class="section level3 mobile">
+<h3>State Summaries (Beta)</h3>
+<div id="htmlwidget-6bd7fa3cbec670646cb4" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6bd7fa3cbec670646cb4">{"x":{"data":[{"x":[72,50,132,82,100,40,48,68,35,65,72,null,10,39,47,68,37,54,65,63,38,43,71,27,34,71,48,32,46,70,62,51,57,70,69,27,null,65,107,29,55,null,34,90,55,98,52,81,19,null,52,35,87,41,37],"y":[19.0279959569408,27.0779877674497,98.5425303725086,45.8353137194887,-3.26216955956659,6.20037888419518,103.033276344041,-0.61144552232365,-9.77178170205903,40.60035610176,37.8213877820864,null,27.3176630419203,-1.7909929778273,15.2350522547704,10.7857294469773,18.0129670432415,86.3660467649681,45.8895658359689,52.415585075356,41.0147674865407,15.0641684017082,14.201383949716,3.66248871375427,-0.840469774565245,28.5894996770667,29.0811284833689,-7.33240277570686,21.1881501821411,12.3818343232528,25.800685789339,14.0114234650391,8.45692643587301,28.1895267290039,25.6120245882252,0.968049156478723,null,8.53738652403191,51.9500541473818,17.1497859631136,-1.27896406871234,null,16.0358917863409,20.3831805445852,22.9143717287121,13.3054907923378,12.0209529145441,35.4567613654917,33.8141485312464,null,22.7570760085531,55.9814006567838,36.8258471397832,4.496577747904,5.12407258134928],"text":[".crossTalkKey: Alabama<br />cases_per_capita:  72<br />cases_week_pct_mavg:  19.0279960<br />state: Alabama",".crossTalkKey: Alaska<br />cases_per_capita:  50<br />cases_week_pct_mavg:  27.0779878<br />state: Alaska",".crossTalkKey: Arizona<br />cases_per_capita: 132<br />cases_week_pct_mavg:  98.5425304<br />state: Arizona",".crossTalkKey: Arkansas<br />cases_per_capita:  82<br />cases_week_pct_mavg:  45.8353137<br />state: Arkansas",".crossTalkKey: California<br />cases_per_capita: 100<br />cases_week_pct_mavg:  -3.2621696<br />state: California",".crossTalkKey: Colorado<br />cases_per_capita:  40<br />cases_week_pct_mavg:   6.2003789<br />state: Colorado",".crossTalkKey: Connecticut<br />cases_per_capita:  48<br />cases_week_pct_mavg: 103.0332763<br />state: Connecticut",".crossTalkKey: Delaware<br />cases_per_capita:  68<br />cases_week_pct_mavg:  -0.6114455<br />state: Delaware",".crossTalkKey: District of Columbia<br />cases_per_capita:  35<br />cases_week_pct_mavg:  -9.7717817<br />state: District of Columbia",".crossTalkKey: Florida<br />cases_per_capita:  65<br />cases_week_pct_mavg:  40.6003561<br />state: Florida",".crossTalkKey: Georgia<br />cases_per_capita:  72<br />cases_week_pct_mavg:  37.8213878<br />state: Georgia",".crossTalkKey: Guam<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Guam",".crossTalkKey: Hawaii<br />cases_per_capita:  10<br />cases_week_pct_mavg:  27.3176630<br />state: Hawaii",".crossTalkKey: Idaho<br />cases_per_capita:  39<br />cases_week_pct_mavg:  -1.7909930<br />state: Idaho",".crossTalkKey: Illinois<br />cases_per_capita:  47<br />cases_week_pct_mavg:  15.2350523<br />state: Illinois",".crossTalkKey: Indiana<br />cases_per_capita:  68<br />cases_week_pct_mavg:  10.7857294<br />state: Indiana",".crossTalkKey: Iowa<br />cases_per_capita:  37<br />cases_week_pct_mavg:  18.0129670<br />state: Iowa",".crossTalkKey: Kansas<br />cases_per_capita:  54<br />cases_week_pct_mavg:  86.3660468<br />state: Kansas",".crossTalkKey: Kentucky<br />cases_per_capita:  65<br />cases_week_pct_mavg:  45.8895658<br />state: Kentucky",".crossTalkKey: Louisiana<br />cases_per_capita:  63<br />cases_week_pct_mavg:  52.4155851<br />state: Louisiana",".crossTalkKey: Maine<br />cases_per_capita:  38<br />cases_week_pct_mavg:  41.0147675<br />state: Maine",".crossTalkKey: Maryland<br />cases_per_capita:  43<br />cases_week_pct_mavg:  15.0641684<br />state: Maryland",".crossTalkKey: Massachusetts<br />cases_per_capita:  71<br />cases_week_pct_mavg:  14.2013839<br />state: Massachusetts",".crossTalkKey: Michigan<br />cases_per_capita:  27<br />cases_week_pct_mavg:   3.6624887<br />state: Michigan",".crossTalkKey: Minnesota<br />cases_per_capita:  34<br />cases_week_pct_mavg:  -0.8404698<br />state: Minnesota",".crossTalkKey: Mississippi<br />cases_per_capita:  71<br />cases_week_pct_mavg:  28.5894997<br />state: Mississippi",".crossTalkKey: Missouri<br />cases_per_capita:  48<br />cases_week_pct_mavg:  29.0811285<br />state: Missouri",".crossTalkKey: Montana<br />cases_per_capita:  32<br />cases_week_pct_mavg:  -7.3324028<br />state: Montana",".crossTalkKey: Nebraska<br />cases_per_capita:  46<br />cases_week_pct_mavg:  21.1881502<br />state: Nebraska",".crossTalkKey: Nevada<br />cases_per_capita:  70<br />cases_week_pct_mavg:  12.3818343<br />state: Nevada",".crossTalkKey: New Hampshire<br />cases_per_capita:  62<br />cases_week_pct_mavg:  25.8006858<br />state: New Hampshire",".crossTalkKey: New Jersey<br />cases_per_capita:  51<br />cases_week_pct_mavg:  14.0114235<br />state: New Jersey",".crossTalkKey: New Mexico<br />cases_per_capita:  57<br />cases_week_pct_mavg:   8.4569264<br />state: New Mexico",".crossTalkKey: New York<br />cases_per_capita:  70<br />cases_week_pct_mavg:  28.1895267<br />state: New York",".crossTalkKey: North Carolina<br />cases_per_capita:  69<br />cases_week_pct_mavg:  25.6120246<br />state: North Carolina",".crossTalkKey: North Dakota<br />cases_per_capita:  27<br />cases_week_pct_mavg:   0.9680492<br />state: North Dakota",".crossTalkKey: Northern Mariana Islands<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Northern Mariana Islands",".crossTalkKey: Ohio<br />cases_per_capita:  65<br />cases_week_pct_mavg:   8.5373865<br />state: Ohio",".crossTalkKey: Oklahoma<br />cases_per_capita: 107<br />cases_week_pct_mavg:  51.9500541<br />state: Oklahoma",".crossTalkKey: Oregon<br />cases_per_capita:  29<br />cases_week_pct_mavg:  17.1497860<br />state: Oregon",".crossTalkKey: Pennsylvania<br />cases_per_capita:  55<br />cases_week_pct_mavg:  -1.2789641<br />state: Pennsylvania",".crossTalkKey: Puerto Rico<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Puerto Rico",".crossTalkKey: Rhode Island<br />cases_per_capita:  34<br />cases_week_pct_mavg:  16.0358918<br />state: Rhode Island",".crossTalkKey: South Carolina<br />cases_per_capita:  90<br />cases_week_pct_mavg:  20.3831805<br />state: South Carolina",".crossTalkKey: South Dakota<br />cases_per_capita:  55<br />cases_week_pct_mavg:  22.9143717<br />state: South Dakota",".crossTalkKey: Tennessee<br />cases_per_capita:  98<br />cases_week_pct_mavg:  13.3054908<br />state: Tennessee",".crossTalkKey: Texas<br />cases_per_capita:  52<br />cases_week_pct_mavg:  12.0209529<br />state: Texas",".crossTalkKey: Utah<br />cases_per_capita:  81<br />cases_week_pct_mavg:  35.4567614<br />state: Utah",".crossTalkKey: Vermont<br />cases_per_capita:  19<br />cases_week_pct_mavg:  33.8141485<br />state: Vermont",".crossTalkKey: Virgin Islands<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Virgin Islands",".crossTalkKey: Virginia<br />cases_per_capita:  52<br />cases_week_pct_mavg:  22.7570760<br />state: Virginia",".crossTalkKey: Washington<br />cases_per_capita:  35<br />cases_week_pct_mavg:  55.9814007<br />state: Washington",".crossTalkKey: West Virginia<br />cases_per_capita:  87<br />cases_week_pct_mavg:  36.8258471<br />state: West Virginia",".crossTalkKey: Wisconsin<br />cases_per_capita:  41<br />cases_week_pct_mavg:   4.4965777<br />state: Wisconsin",".crossTalkKey: Wyoming<br />cases_per_capita:  37<br />cases_week_pct_mavg:   5.1240726<br />state: Wyoming"],"key":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","set":"SharedData643931d9","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null},{"x":[72,50,132,82,100,40,48,68,35,65,72,null,10,39,47,68,37,54,65,63,38,43,71,27,34,71,48,32,46,70,62,51,57,70,69,27,null,65,107,29,55,null,34,90,55,98,52,81,19,null,52,35,87,41,37],"y":[19.0279959569408,27.0779877674497,98.5425303725086,45.8353137194887,-3.26216955956659,6.20037888419518,103.033276344041,-0.61144552232365,-9.77178170205903,40.60035610176,37.8213877820864,null,27.3176630419203,-1.7909929778273,15.2350522547704,10.7857294469773,18.0129670432415,86.3660467649681,45.8895658359689,52.415585075356,41.0147674865407,15.0641684017082,14.201383949716,3.66248871375427,-0.840469774565245,28.5894996770667,29.0811284833689,-7.33240277570686,21.1881501821411,12.3818343232528,25.800685789339,14.0114234650391,8.45692643587301,28.1895267290039,25.6120245882252,0.968049156478723,null,8.53738652403191,51.9500541473818,17.1497859631136,-1.27896406871234,null,16.0358917863409,20.3831805445852,22.9143717287121,13.3054907923378,12.0209529145441,35.4567613654917,33.8141485312464,null,22.7570760085531,55.9814006567838,36.8258471397832,4.496577747904,5.12407258134928],"text":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"hovertext":[".crossTalkKey: Alabama<br />cases_per_capita:  72<br />cases_week_pct_mavg:  19.0279960<br />state: Alabama",".crossTalkKey: Alaska<br />cases_per_capita:  50<br />cases_week_pct_mavg:  27.0779878<br />state: Alaska",".crossTalkKey: Arizona<br />cases_per_capita: 132<br />cases_week_pct_mavg:  98.5425304<br />state: Arizona",".crossTalkKey: Arkansas<br />cases_per_capita:  82<br />cases_week_pct_mavg:  45.8353137<br />state: Arkansas",".crossTalkKey: California<br />cases_per_capita: 100<br />cases_week_pct_mavg:  -3.2621696<br />state: California",".crossTalkKey: Colorado<br />cases_per_capita:  40<br />cases_week_pct_mavg:   6.2003789<br />state: Colorado",".crossTalkKey: Connecticut<br />cases_per_capita:  48<br />cases_week_pct_mavg: 103.0332763<br />state: Connecticut",".crossTalkKey: Delaware<br />cases_per_capita:  68<br />cases_week_pct_mavg:  -0.6114455<br />state: Delaware",".crossTalkKey: District of Columbia<br />cases_per_capita:  35<br />cases_week_pct_mavg:  -9.7717817<br />state: District of Columbia",".crossTalkKey: Florida<br />cases_per_capita:  65<br />cases_week_pct_mavg:  40.6003561<br />state: Florida",".crossTalkKey: Georgia<br />cases_per_capita:  72<br />cases_week_pct_mavg:  37.8213878<br />state: Georgia",".crossTalkKey: Guam<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Guam",".crossTalkKey: Hawaii<br />cases_per_capita:  10<br />cases_week_pct_mavg:  27.3176630<br />state: Hawaii",".crossTalkKey: Idaho<br />cases_per_capita:  39<br />cases_week_pct_mavg:  -1.7909930<br />state: Idaho",".crossTalkKey: Illinois<br />cases_per_capita:  47<br />cases_week_pct_mavg:  15.2350523<br />state: Illinois",".crossTalkKey: Indiana<br />cases_per_capita:  68<br />cases_week_pct_mavg:  10.7857294<br />state: Indiana",".crossTalkKey: Iowa<br />cases_per_capita:  37<br />cases_week_pct_mavg:  18.0129670<br />state: Iowa",".crossTalkKey: Kansas<br />cases_per_capita:  54<br />cases_week_pct_mavg:  86.3660468<br />state: Kansas",".crossTalkKey: Kentucky<br />cases_per_capita:  65<br />cases_week_pct_mavg:  45.8895658<br />state: Kentucky",".crossTalkKey: Louisiana<br />cases_per_capita:  63<br />cases_week_pct_mavg:  52.4155851<br />state: Louisiana",".crossTalkKey: Maine<br />cases_per_capita:  38<br />cases_week_pct_mavg:  41.0147675<br />state: Maine",".crossTalkKey: Maryland<br />cases_per_capita:  43<br />cases_week_pct_mavg:  15.0641684<br />state: Maryland",".crossTalkKey: Massachusetts<br />cases_per_capita:  71<br />cases_week_pct_mavg:  14.2013839<br />state: Massachusetts",".crossTalkKey: Michigan<br />cases_per_capita:  27<br />cases_week_pct_mavg:   3.6624887<br />state: Michigan",".crossTalkKey: Minnesota<br />cases_per_capita:  34<br />cases_week_pct_mavg:  -0.8404698<br />state: Minnesota",".crossTalkKey: Mississippi<br />cases_per_capita:  71<br />cases_week_pct_mavg:  28.5894997<br />state: Mississippi",".crossTalkKey: Missouri<br />cases_per_capita:  48<br />cases_week_pct_mavg:  29.0811285<br />state: Missouri",".crossTalkKey: Montana<br />cases_per_capita:  32<br />cases_week_pct_mavg:  -7.3324028<br />state: Montana",".crossTalkKey: Nebraska<br />cases_per_capita:  46<br />cases_week_pct_mavg:  21.1881502<br />state: Nebraska",".crossTalkKey: Nevada<br />cases_per_capita:  70<br />cases_week_pct_mavg:  12.3818343<br />state: Nevada",".crossTalkKey: New Hampshire<br />cases_per_capita:  62<br />cases_week_pct_mavg:  25.8006858<br />state: New Hampshire",".crossTalkKey: New Jersey<br />cases_per_capita:  51<br />cases_week_pct_mavg:  14.0114235<br />state: New Jersey",".crossTalkKey: New Mexico<br />cases_per_capita:  57<br />cases_week_pct_mavg:   8.4569264<br />state: New Mexico",".crossTalkKey: New York<br />cases_per_capita:  70<br />cases_week_pct_mavg:  28.1895267<br />state: New York",".crossTalkKey: North Carolina<br />cases_per_capita:  69<br />cases_week_pct_mavg:  25.6120246<br />state: North Carolina",".crossTalkKey: North Dakota<br />cases_per_capita:  27<br />cases_week_pct_mavg:   0.9680492<br />state: North Dakota",".crossTalkKey: Northern Mariana Islands<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Northern Mariana Islands",".crossTalkKey: Ohio<br />cases_per_capita:  65<br />cases_week_pct_mavg:   8.5373865<br />state: Ohio",".crossTalkKey: Oklahoma<br />cases_per_capita: 107<br />cases_week_pct_mavg:  51.9500541<br />state: Oklahoma",".crossTalkKey: Oregon<br />cases_per_capita:  29<br />cases_week_pct_mavg:  17.1497860<br />state: Oregon",".crossTalkKey: Pennsylvania<br />cases_per_capita:  55<br />cases_week_pct_mavg:  -1.2789641<br />state: Pennsylvania",".crossTalkKey: Puerto Rico<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Puerto Rico",".crossTalkKey: Rhode Island<br />cases_per_capita:  34<br />cases_week_pct_mavg:  16.0358918<br />state: Rhode Island",".crossTalkKey: South Carolina<br />cases_per_capita:  90<br />cases_week_pct_mavg:  20.3831805<br />state: South Carolina",".crossTalkKey: South Dakota<br />cases_per_capita:  55<br />cases_week_pct_mavg:  22.9143717<br />state: South Dakota",".crossTalkKey: Tennessee<br />cases_per_capita:  98<br />cases_week_pct_mavg:  13.3054908<br />state: Tennessee",".crossTalkKey: Texas<br />cases_per_capita:  52<br />cases_week_pct_mavg:  12.0209529<br />state: Texas",".crossTalkKey: Utah<br />cases_per_capita:  81<br />cases_week_pct_mavg:  35.4567614<br />state: Utah",".crossTalkKey: Vermont<br />cases_per_capita:  19<br />cases_week_pct_mavg:  33.8141485<br />state: Vermont",".crossTalkKey: Virgin Islands<br />cases_per_capita:  NA<br />cases_week_pct_mavg:          NA<br />state: Virgin Islands",".crossTalkKey: Virginia<br />cases_per_capita:  52<br />cases_week_pct_mavg:  22.7570760<br />state: Virginia",".crossTalkKey: Washington<br />cases_per_capita:  35<br />cases_week_pct_mavg:  55.9814007<br />state: Washington",".crossTalkKey: West Virginia<br />cases_per_capita:  87<br />cases_week_pct_mavg:  36.8258471<br />state: West Virginia",".crossTalkKey: Wisconsin<br />cases_per_capita:  41<br />cases_week_pct_mavg:   4.4965777<br />state: Wisconsin",".crossTalkKey: Wyoming<br />cases_per_capita:  37<br />cases_week_pct_mavg:   5.1240726<br />state: Wyoming"],"key":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"textfont":{"size":14.6645669291339,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","set":"SharedData643931d9","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","_isNestedKey":false,"frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.9,138.1],"tickmode":"array","ticktext":["50","100"],"tickvals":[50,100],"categoryorder":"array","categoryarray":["50","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Cases per 100,000","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-15.412034604364,108.673529246346],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"% Change in Moving Average, Week over Week","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative","dragmode":"zoom"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"be47b5a4dc7":{"key":{},"x":{},"y":{},"label":{},"type":"scatter"},"be4598e277":{"key":{},"x":{},"y":{},"label":{}}},"cur_data":"be47b5a4dc7","visdat":{"be47b5a4dc7":["function (y) ","x"],"be4598e277":["function (y) ","x"]},"highlight":{"on":"plotly_click","off":"plotly_doubleclick","persistent":false,"dynamic":false,"color":null,"selectize":false,"defaultValues":null,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0,"ctGroups":["SharedData643931d9"]},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7bcf3b39f7ade319f966" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7bcf3b39f7ade319f966">{"x":{"crosstalkOptions":{"key":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"group":"SharedData643931d9"},"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55"],["As of yesterday, there has been a total of 371,934 cases of COVID-19 in Alabama. This is a change of 2,476 (0.67%) new cases since the day prior. The 7 day moving average is currently 3,542 new cases which is a -9.12% change since the day prior and 19.03% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 47,846 cases of COVID-19 in Alaska. This is a change of 297 (0.62%) new cases since the day prior. The 7 day moving average is currently 363.7 new cases which is a -5.76% change since the day prior and 27.08% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 556,384 cases of COVID-19 in Arizona. This is a change of 17,222 (3.19%) new cases since the day prior. The 7 day moving average is currently 9,600 new cases which is a 35.99% change since the day prior and 98.54% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 233,475 cases of COVID-19 in Arkansas. This is a change of 2,033 (0.88%) new cases since the day prior. The 7 day moving average is currently 2,488 new cases which is a -5.75% change since the day prior and 45.84% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 2,433,838 cases of COVID-19 in California. This is a change of 35,915 (1.5%) new cases since the day prior. The 7 day moving average is currently 3.939e+04 new cases which is a -2.85% change since the day prior and -3.26% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 342,494 cases of COVID-19 in Colorado. This is a change of 2,040 (0.6%) new cases since the day prior. The 7 day moving average is currently 2,288 new cases which is a -3.49% change since the day prior and 6.2% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 27 --&gt; 2020-12-08).","As of yesterday, there has been a total of 190,120 cases of COVID-19 in Connecticut. This is a change of 0 (0%) new cases since the day prior. The 7 day moving average is currently 1,711 new cases which is a -25% change since the day prior and 103% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 7 --&gt; 2020-12-28).","As of yesterday, there has been a total of 59,484 cases of COVID-19 in Delaware. This is a change of 611 (1.04%) new cases since the day prior. The 7 day moving average is currently 662.6 new cases which is a -2.53% change since the day prior and -0.61% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 29,764 cases of COVID-19 in District of Columbia. This is a change of 255 (0.86%) new cases since the day prior. The 7 day moving average is currently 245.1 new cases which is a 1.37% change since the day prior and -9.77% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 1,365,428 cases of COVID-19 in Florida. This is a change of 10,603 (0.78%) new cases since the day prior. The 7 day moving average is currently 1.387e+04 new cases which is a -7.28% change since the day prior and 40.6% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 667,705 cases of COVID-19 in Georgia. This is a change of 5,628 (0.85%) new cases since the day prior. The 7 day moving average is currently 7,633 new cases which is a -8.05% change since the day prior and 37.82% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 8,296 cases of COVID-19 in Guam. This is a change of 1 (0.01%) new cases since the day prior. The 7 day moving average is currently 5.97 new cases which is a -21.72% change since the day prior and -28.58% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 22,017 cases of COVID-19 in Hawaii. This is a change of 122 (0.56%) new cases since the day prior. The 7 day moving average is currently 147.6 new cases which is a -5.47% change since the day prior and 27.32% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 142,568 cases of COVID-19 in Idaho. This is a change of 278 (0.2%) new cases since the day prior. The 7 day moving average is currently 701.3 new cases which is a -16.75% change since the day prior and -1.79% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 982,105 cases of COVID-19 in Illinois. This is a change of 4,428 (0.45%) new cases since the day prior. The 7 day moving average is currently 6,005 new cases which is a -8.05% change since the day prior and 15.24% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 529,054 cases of COVID-19 in Indiana. This is a change of 2,989 (0.57%) new cases since the day prior. The 7 day moving average is currently 4,585 new cases which is a -10.4% change since the day prior and 10.79% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 284,715 cases of COVID-19 in Iowa. This is a change of 820 (0.29%) new cases since the day prior. The 7 day moving average is currently 1,157 new cases which is a -8.85% change since the day prior and 18.01% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 230,352 cases of COVID-19 in Kansas. This is a change of 0 (0%) new cases since the day prior. The 7 day moving average is currently 1,563 new cases which is a -25% change since the day prior and 86.37% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 278,478 cases of COVID-19 in Kentucky. This is a change of 2,675 (0.97%) new cases since the day prior. The 7 day moving average is currently 2,886 new cases which is a -2.38% change since the day prior and 45.89% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 321,058 cases of COVID-19 in Louisiana. This is a change of 5,783 (1.83%) new cases since the day prior. The 7 day moving average is currently 2,933 new cases which is a 47.89% change since the day prior and 52.42% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 25,592 cases of COVID-19 in Maine. This is a change of 347 (1.37%) new cases since the day prior. The 7 day moving average is currently 505.6 new cases which is a -9.47% change since the day prior and 41.01% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 285,487 cases of COVID-19 in Maryland. This is a change of 2,148 (0.76%) new cases since the day prior. The 7 day moving average is currently 2,608 new cases which is a -5.55% change since the day prior and 15.06% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 387,662 cases of COVID-19 in Massachusetts. This is a change of 3,481 (0.91%) new cases since the day prior. The 7 day moving average is currently 4,867 new cases which is a -8.67% change since the day prior and 14.2% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 536,037 cases of COVID-19 in Michigan. This is a change of 222 (0.04%) new cases since the day prior. The 7 day moving average is currently 2,738 new cases which is a -23.45% change since the day prior and 3.66% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 420,603 cases of COVID-19 in Minnesota. This is a change of 2,712 (0.65%) new cases since the day prior. The 7 day moving average is currently 1,904 new cases which is a 16.49% change since the day prior and -0.84% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 30 --&gt; 2020-12-05).","As of yesterday, there has been a total of 222,061 cases of COVID-19 in Mississippi. This is a change of 1,784 (0.81%) new cases since the day prior. The 7 day moving average is currently 2,102 new cases which is a -4.8% change since the day prior and 28.59% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 426,489 cases of COVID-19 in Missouri. This is a change of 2,595 (0.61%) new cases since the day prior. The 7 day moving average is currently 2,920 new cases which is a -3.58% change since the day prior and 29.08% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 82,381 cases of COVID-19 in Montana. This is a change of 390 (0.48%) new cases since the day prior. The 7 day moving average is currently 343.5 new cases which is a 4.72% change since the day prior and -7.33% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 27 --&gt; 2020-12-08).","As of yesterday, there has been a total of 169,284 cases of COVID-19 in Nebraska. This is a change of 720 (0.43%) new cases since the day prior. The 7 day moving average is currently 888.5 new cases which is a -5.95% change since the day prior and 21.19% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 231,869 cases of COVID-19 in Nevada. This is a change of 2,268 (0.99%) new cases since the day prior. The 7 day moving average is currently 2,146 new cases which is a 1.93% change since the day prior and 12.38% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 46,450 cases of COVID-19 in New Hampshire. This is a change of 1,266 (2.8%) new cases since the day prior. The 7 day moving average is currently 848.5 new cases which is a 19.62% change since the day prior and 25.8% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 6 --&gt; 2020-12-29).","As of yesterday, there has been a total of 494,063 cases of COVID-19 in New Jersey. This is a change of 3,670 (0.75%) new cases since the day prior. The 7 day moving average is currently 4,501 new cases which is a -5.8% change since the day prior and 14.01% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 146,394 cases of COVID-19 in New Mexico. This is a change of 1,015 (0.7%) new cases since the day prior. The 7 day moving average is currently 1,193 new cases which is a -4.74% change since the day prior and 8.46% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 1,024,154 cases of COVID-19 in New York. This is a change of 12,232 (1.21%) new cases since the day prior. The 7 day moving average is currently 1.367e+04 new cases which is a -3.38% change since the day prior and 28.19% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 79 --&gt; 2020-10-17).","As of yesterday, there has been a total of 565,260 cases of COVID-19 in North Carolina. This is a change of 5,318 (0.95%) new cases since the day prior. The 7 day moving average is currently 7,286 new cases which is a -8.26% change since the day prior and 25.61% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 93,048 cases of COVID-19 in North Dakota. This is a change of 150 (0.16%) new cases since the day prior. The 7 day moving average is currently 206.9 new cases which is a -8.39% change since the day prior and 0.97% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 24 --&gt; 2020-12-11).","As of yesterday, there has been a total of 122 cases of COVID-19 in Northern Mariana Islands. This is a change of 0 (0%) new cases since the day prior. The 7 day moving average is currently 0.13 new cases which is a -25% change since the day prior and -86.65% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 5 --&gt; 2020-12-30).","As of yesterday, there has been a total of 721,481 cases of COVID-19 in Ohio. This is a change of 6,808 (0.95%) new cases since the day prior. The 7 day moving average is currently 7,631 new cases which is a -3.47% change since the day prior and 8.54% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 304,072 cases of COVID-19 in Oklahoma. This is a change of 8,017 (2.71%) new cases since the day prior. The 7 day moving average is currently 4,229 new cases which is a 42.57% change since the day prior and 51.95% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 117,745 cases of COVID-19 in Oregon. This is a change of 1,397 (1.2%) new cases since the day prior. The 7 day moving average is currently 1,209 new cases which is a 5.47% change since the day prior and 17.15% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 666,207 cases of COVID-19 in Pennsylvania. This is a change of 4,476 (0.68%) new cases since the day prior. The 7 day moving average is currently 7,105 new cases which is a -10.98% change since the day prior and -1.28% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 17 --&gt; 2020-12-18).","As of yesterday, there has been a total of 111,784 cases of COVID-19 in Puerto Rico. This is a change of 237 (0.21%) new cases since the day prior. The 7 day moving average is currently 629.5 new cases which is a -17.21% change since the day prior and -17.97% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 87,949 cases of COVID-19 in Rhode Island. This is a change of 0 (0%) new cases since the day prior. The 7 day moving average is currently 361 new cases which is a -25% change since the day prior and 16.04% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 7 --&gt; 2020-12-28).","As of yesterday, there has been a total of 321,669 cases of COVID-19 in South Carolina. This is a change of 8,951 (2.86%) new cases since the day prior. The 7 day moving average is currently 4,614 new cases which is a 45.64% change since the day prior and 20.38% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 100,532 cases of COVID-19 in South Dakota. This is a change of 703 (0.7%) new cases since the day prior. The 7 day moving average is currently 486.1 new cases which is a 17.47% change since the day prior and 22.91% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 593,363 cases of COVID-19 in Tennessee. This is a change of 3,957 (0.67%) new cases since the day prior. The 7 day moving average is currently 6,724 new cases which is a -12.06% change since the day prior and 13.31% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 2 --&gt; 2021-01-02).","As of yesterday, there has been a total of 1,810,065 cases of COVID-19 in Texas. This is a change of 16,207 (0.9%) new cases since the day prior. The 7 day moving average is currently 1.521e+04 new cases which is a 2.23% change since the day prior and 12.02% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 283,473 cases of COVID-19 in Utah. This is a change of 1,726 (0.61%) new cases since the day prior. The 7 day moving average is currently 2,587 new cases which is a -9.99% change since the day prior and 35.46% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 7,793 cases of COVID-19 in Vermont. This is a change of 104 (1.35%) new cases since the day prior. The 7 day moving average is currently 118.9 new cases which is a -4.01% change since the day prior and 33.81% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 4 --&gt; 2020-12-31).","As of yesterday, there has been a total of 2,042 cases of COVID-19 in Virgin Islands. This is a change of 0 (0%) new cases since the day prior. The 7 day moving average is currently 7.54 new cases which is a -25% change since the day prior and -3.69% change since the week prior. The immediate trend is heading downward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 11 --&gt; 2020-12-24).","As of yesterday, there has been a total of 363,765 cases of COVID-19 in Virginia. This is a change of 5,010 (1.4%) new cases since the day prior. The 7 day moving average is currently 4,445 new cases which is a 4.42% change since the day prior and 22.76% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 258,557 cases of COVID-19 in Washington. This is a change of 5,267 (2.08%) new cases since the day prior. The 7 day moving average is currently 2,700 new cases which is a 46.4% change since the day prior and 55.98% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 11 --&gt; 2020-12-24).","As of yesterday, there has been a total of 91,058 cases of COVID-19 in West Virginia. This is a change of 1,731 (1.94%) new cases since the day prior. The 7 day moving average is currently 1,561 new cases which is a 3.78% change since the day prior and 36.83% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 526,245 cases of COVID-19 in Wisconsin. This is a change of 2,593 (0.5%) new cases since the day prior. The 7 day moving average is currently 2,397 new cases which is a 2.81% change since the day prior and 4.5% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday was not an inflection point (days since last inflection point: 3 --&gt; 2021-01-01).","As of yesterday, there has been a total of 44,875 cases of COVID-19 in Wyoming. This is a change of 302 (0.68%) new cases since the day prior. The 7 day moving average is currently 214.6 new cases which is a 15.7% change since the day prior and 5.12% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday's data, yesterday (2021-01-03) was an inflection point (days since last inflection point: 2 --&gt; 2021-01-02)."],["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Guam","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Northern Mariana Islands","Ohio","Oklahoma","Oregon","Pennsylvania","Puerto Rico","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],[19.0279959569408,27.0779877674497,98.5425303725086,45.8353137194887,-3.26216955956659,6.20037888419518,103.033276344041,-0.61144552232365,-9.77178170205903,40.60035610176,37.8213877820864,null,27.3176630419203,-1.7909929778273,15.2350522547704,10.7857294469773,18.0129670432415,86.3660467649681,45.8895658359689,52.415585075356,41.0147674865407,15.0641684017082,14.201383949716,3.66248871375427,-0.840469774565245,28.5894996770667,29.0811284833689,-7.33240277570686,21.1881501821411,12.3818343232528,25.800685789339,14.0114234650391,8.45692643587301,28.1895267290039,25.6120245882252,0.968049156478723,null,8.53738652403191,51.9500541473818,17.1497859631136,-1.27896406871234,null,16.0358917863409,20.3831805445852,22.9143717287121,13.3054907923378,12.0209529145441,35.4567613654917,33.8141485312464,null,22.7570760085531,55.9814006567838,36.8258471397832,4.496577747904,5.12407258134928],[72,50,132,82,100,40,48,68,35,65,72,null,10,39,47,68,37,54,65,63,38,43,71,27,34,71,48,32,46,70,62,51,57,70,69,27,null,65,107,29,55,null,34,90,55,98,52,81,19,null,52,35,87,41,37]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Summary<\/th>\n      <th>state<\/th>\n      <th>cases_week_pct_mavg<\/th>\n      <th>cases_per_capita<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":1,"autoWidth":true,"columnDefs":[{"className":"dt-right","targets":[3,4]},{"orderable":false,"targets":0}],"order":[],"orderClasses":false,"lengthMenu":[1,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="state-consecutive-day-trends" class="section level3 tabset tabset-pills">
+<h3>State Consecutive Day Trends</h3>
+<blockquote>
+<p>Of the 51 US states monitored, <strong>3 (5.88%) </strong> show consecutive increase in their 7-day moving average of new COVID-19 cases for at least 7 days. <strong>3 (5.88%)</strong> show consecutive decrease for at least 7 days.</p>
+</blockquote>
+<div id="states-with-consecutive-increase" class="section level4">
+<h4><strong>3</strong> State(s) with Consecutive Increase</h4>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Consecutive Days
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New York </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">70</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ff8c00; font-family: verdana; font-size: 10; width: 50px">79</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Connecticut </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 123.428571428571px">48</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">7</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Rhode Island</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 87.4285714285714px">34</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">7</span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="states-with-consecutive-decrease" class="section level4">
+<h4><strong>3</strong> State(s) with Consecutive Decrease</h4>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Consecutive Days
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Pennsylvania</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #2EC26D; width: 180px">55</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">17</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Minnesota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #2EC26D; width: 111.272727272727px">34</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ff8c00; font-family: verdana; font-size: 10; width: 50px">30</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Montana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #2EC26D; width: 104.727272727273px">32</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffa600; font-family: verdana; font-size: 10; width: 50px">27</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="states-detailed" class="section level3 tabset tabset-pills mobile">
+<h3>States Detailed</h3>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:right;">
+Trend
+</th>
+<th style="text-align:center;">
+ICU Stress
+</th>
+<th style="text-align:center;">
+Inpatient Stress
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arizona </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 100px">132</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Oklahoma </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 81.0606060606061px">107</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">California </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 75.7575757575758px">100</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Tennessee </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 74.2424242424242px">98</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Carolina </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.1818181818182px">90</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">West Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 65.9090909090909px">87</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arkansas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 62.1212121212121px">82</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Utah </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 61.3636363636364px">81</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Georgia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 54.5454545454545px">72</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Alabama </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 54.5454545454545px">72</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Massachusetts </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.7878787878788px">71</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Mississippi </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.7878787878788px">71</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New York </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.030303030303px">70</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Nevada </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.030303030303px">70</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Carolina </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 52.2727272727273px">69</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Indiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 51.5151515151515px">68</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Delaware </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 51.5151515151515px">68</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Florida </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 49.2424242424242px">65</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kentucky </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 49.2424242424242px">65</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Ohio </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 49.2424242424242px">65</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Louisiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 47.7272727272727px">63</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Hampshire </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 46.969696969697px">62</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Mexico </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 43.1818181818182px">57</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Dakota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 41.6666666666667px">55</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Pennsylvania </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 41.6666666666667px">55</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kansas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 40.9090909090909px">54</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Texas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 39.3939393939394px">52</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 39.3939393939394px">52</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Jersey </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 38.6363636363636px">51</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Alaska </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 37.8787878787879px">50</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Connecticut </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 36.3636363636364px">48</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Missouri </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 36.3636363636364px">48</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Illinois </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 35.6060606060606px">47</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Nebraska </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 34.8484848484849px">46</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Maryland </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 32.5757575757576px">43</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Wisconsin </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 31.0606060606061px">41</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Colorado </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 30.3030303030303px">40</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Idaho </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 29.5454545454545px">39</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Maine </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 28.7878787878788px">38</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Iowa </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 28.030303030303px">37</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Wyoming </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 28.030303030303px">37</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Washington </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 26.5151515151515px">35</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">District of Columbia</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 26.5151515151515px">35</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Rhode Island </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 25.7575757575758px">34</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Minnesota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 25.7575757575758px">34</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Montana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 24.2424242424242px">32</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Oregon </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 21.969696969697px">29</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Michigan </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 20.4545454545455px">27</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Dakota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 20.4545454545455px">27</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Vermont </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 14.3939393939394px">19</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Hawaii </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 7.57575757575758px">10</span>
+</td>
+<td style="text-align:right;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="hospital-status-beta" class="section level3">
+<h3>Hospital Status (Beta)</h3>
+<blockquote>
+<p>The following illustrates the current situation in intensive care units (ICUs) in the USA. On average, the stress on ICUs across the country is <em>extreme</em>. Stress definitions can be found in the References tab.</p>
+</blockquote>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+</center>
+
+<center>
+<img src="master_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+</center>
+
+</div>
+<div id="region-by-region" class="section level3 tabset tabset-pills">
+<h3>Region by Region</h3>
+<div id="west" class="section level4 mobile">
+<h4>west</h4>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+</center>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+</center>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Trend
+</th>
+<th style="text-align:center;">
+ICU Stress
+</th>
+<th style="text-align:center;">
+Inpatient Stress
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arizona </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">132</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">California</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 136.363636363636px">100</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Utah </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 110.454545454545px">81</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Nevada </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 95.4545454545455px">70</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Mexico</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 77.7272727272727px">57</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Alaska </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.1818181818182px">50</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Colorado </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 54.5454545454545px">40</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Idaho </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 53.1818181818182px">39</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Wyoming </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 50.4545454545455px">37</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Washington</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 47.7272727272727px">35</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Montana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 43.6363636363636px">32</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Oregon </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 39.5454545454545px">29</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Hawaii </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 13.6363636363636px">10</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="south" class="section level4 mobile">
+<h4>south</h4>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+</center>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+</center>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Trend
+</th>
+<th style="text-align:center;">
+ICU Stress
+</th>
+<th style="text-align:center;">
+Inpatient Stress
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Oklahoma </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">107</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Tennessee </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 164.859813084112px">98</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Carolina </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 151.401869158878px">90</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">West Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 146.355140186916px">87</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arkansas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 137.943925233645px">82</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Georgia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 121.121495327103px">72</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Alabama </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 121.121495327103px">72</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Mississippi </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 119.439252336449px">71</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Carolina </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 116.07476635514px">69</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Delaware </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 114.392523364486px">68</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Florida </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 109.345794392523px">65</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kentucky </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 109.345794392523px">65</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Louisiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 105.981308411215px">63</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Texas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 87.4766355140187px">52</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 87.4766355140187px">52</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Maryland </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 72.3364485981308px">43</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">District of Columbia</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 58.8785046728972px">35</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="midwest" class="section level4 mobile">
+<h4>midwest</h4>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+</center>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+</center>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Trend
+</th>
+<th style="text-align:center;">
+ICU Stress
+</th>
+<th style="text-align:center;">
+Inpatient Stress
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Indiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">68</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Ohio </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 172.058823529412px">65</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Dakota</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 145.588235294118px">55</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kansas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 142.941176470588px">54</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Missouri </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 127.058823529412px">48</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Illinois </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 124.411764705882px">47</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Nebraska </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 121.764705882353px">46</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Wisconsin </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 108.529411764706px">41</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Iowa </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 97.9411764705882px">37</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Minnesota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 90px">34</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Michigan </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 71.4705882352941px">27</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Dakota</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 71.4705882352941px">27</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="northeast" class="section level4 mobile">
+<h4>northeast</h4>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+</center>
+<center>
+<img src="master_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+</center>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Trend
+</th>
+<th style="text-align:center;">
+ICU Stress
+</th>
+<th style="text-align:center;">
+Inpatient Stress
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Massachusetts</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">71</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New York </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 177.464788732394px">70</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Hampshire</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 157.183098591549px">62</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Pennsylvania </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 139.43661971831px">55</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #71CA97"> <i class="glyphicon glyphicon-arrow-down"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Jersey </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 129.295774647887px">51</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Connecticut </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 121.69014084507px">48</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Maine </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 96.3380281690141px">38</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #B3C3D1; width: 70px">moderate</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Rhode Island </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 86.1971830985915px">34</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #ff7f7f; width: 70px">extreme </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Vermont </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 48.169014084507px">19</span>
+</td>
+<td style="text-align:center;">
+<p><span style="font-weight: bold; color: #ff7f7f"> <i class="glyphicon glyphicon-arrow-up"></i></p>
+</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #FFA53B; width: 70px">high </span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: #29999AAA; width: 70px">low </span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<p><strong>ICU stress definitions:</strong></p>
+<ul>
+<li><strong>low</strong>: less than 10% of ICU Usage<br />
+</li>
+<li><strong>moderate</strong>: 10-29% of ICU Usage<br />
+</li>
+<li><strong>high</strong>: 30-59% of ICU Usage</li>
+<li><strong>extreme</strong>: greater than 60% of ICU Usage</li>
+</ul>
+<p><strong>Inpatient stress definitions:</strong></p>
+<ul>
+<li><strong>low</strong>: less than 5% of hospital beds occupied by COVID-19 patients</li>
+<li><strong>moderate</strong>: 5-9% of hospital beds occupied by COVID-19 patients<br />
+</li>
+<li><strong>high</strong>: 10-19% of hospital beds occupied by COVID-19 patients</li>
+<li><strong>extreme</strong>: greater than 20% of hospital beds occupied by COVID-19 patients</li>
+</ul>
+<p>Data from:</p>
+<ul>
+<li><a href="https://github.com/nytimes/covid-19-data">NYTimes COVID-19 Github</a><br />
+</li>
+<li><a href="https://github.com/CSSEGISandData/COVID-19">JHU COVID-19 Github</a><br />
+</li>
+<li><a href="https://covidtracking.com/data/download">COVID-19 Tracking Project</a><br />
+</li>
+<li><a href="https://healthdata.gov/dataset/covid-19-estimated-patient-impact-and-hospital-capacity-state">Dept. Health and Human Services: COVID-19 ESt. Patient Impact</a></li>
+</ul>
+<p>Other resources to check out:</p>
+<ul>
+<li><a href="https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html">See How All 50 States Are Reopening (and Closing Again)</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html">NYtimes Visualizations for Case Tracking in U.S.</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/science/coronavirus-drugs-treatments.html">Coronavirus Drug and Treatment Tracker</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/science/coronavirus-vaccine-tracker.html">Coronavirus Vaccine Tracker</a></li>
+</ul>
+<hr />
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+</body>
+</html>

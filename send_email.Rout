@@ -88,6 +88,10 @@ The following object is masked from 'package:graphics':
     layout
 
 
+Use 'expss_output_rnotebook()' to display tables inside R Notebooks.
+ To return to the console output, use 'expss_output_default()'.
+
+
 Attaching package: 'expss'
 
 The following objects are masked from 'package:data.table':
@@ -379,7 +383,7 @@ List of 2
 
 output file: master.knit.md
 
-"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\Rtmp8exxSS\rmarkdown-str545836b856bd.html" 
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpqAz0VQ\rmarkdown-str5410a7d507e.html" 
 
 Output created: docs/index.html
 Warning messages:
@@ -463,7 +467,7 @@ Warning messages:
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
 +     to = "jensennhu@gmail.com",
-+     #bcc = c("eddiehhu@gmail.com",  "tiffwho@gmail.com", "adri.hu@gmail.com", "helennghu@gmail.com", "jjchang7@gmail.com", "brianjkim05@gmail.com", "roblam@gmail.com", "kristinawritess@gmail.com"),
++     bcc = c("eddiehhu@gmail.com",  "tiffwho@gmail.com", "adri.hu@gmail.com", "helennghu@gmail.com", "jjchang7@gmail.com", "brianjkim05@gmail.com", "roblam@gmail.com", "kristinawritess@gmail.com"),
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -472,8 +476,8 @@ The email message was sent successfully.
 > friends_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = "jensennhu@gmail.com", 
-+     #bcc = c("brian.j.hung@gmail.com", "belindacheng918@gmail.com", "bryanthua@gmail.com", "christine.cerrada@gmail.com", "themeanyhead@gmail.com"), 
++     to = c("jensennhu@gmail.com"),
++     bcc = c("brian.j.hung@gmail.com", "belindacheng918@gmail.com", "bryanthua@gmail.com", "christine.cerrada@gmail.com", "themeanyhead@gmail.com", "enochkim92@gmail.com", "minhtam.nguyen@mattel.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -482,8 +486,7 @@ The email message was sent successfully.
 > friends_jc_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #, "jtnc02@gmail.com"), 
++     to = c("jensennhu@gmail.com", "jtnc02@gmail.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -492,8 +495,7 @@ The email message was sent successfully.
 > friends_bl_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"biancalouie@gmail.com"), 
++     to = c("jensennhu@gmail.com", "biancalouie@gmail.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -502,8 +504,7 @@ The email message was sent successfully.
 > friends_eh_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #, "emilyannhannah@gmail.com"), 
++     to = c("jensennhu@gmail.com", "emilyannhannah@gmail.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -512,8 +513,7 @@ The email message was sent successfully.
 > friends_sw_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to =  c("jensennhu@gmail.com"),
-+     #, "swang165@gmail.com"), 
++     to =  c("jensennhu@gmail.com", "swang165@gmail.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -522,8 +522,7 @@ The email message was sent successfully.
 > friends_ep_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"Ellapestine@gmail.com"), 
++     to = c("jensennhu@gmail.com", "Ellapestine@gmail.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -532,8 +531,7 @@ The email message was sent successfully.
 > friends_bk_body %>% 
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+       #     , "hello@bkelz.com"), 
++     to = c("jensennhu@gmail.com", "hello@bkelz.com"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -541,4 +539,4 @@ The email message was sent successfully.
 > 
 > proc.time()
    user  system elapsed 
-  34.00    4.90   62.54 
+  53.26    7.00   89.92 
