@@ -174,10 +174,10 @@ Warning messages:
 
 
 processing file: master.Rmd
-  |                                                                              |                                                                      |   0%  |                                                                              |..                                                                    |   3%
+  |                                                                              |                                                                      |   0%  |                                                                              |..                                                                    |   2%
   ordinary text without R code
 
-  |                                                                              |....                                                                  |   5%
+  |                                                                              |...                                                                   |   5%
 label: unnamed-chunk-1 (with options) 
 List of 3
  $ echo   : logi FALSE
@@ -185,7 +185,7 @@ List of 3
  $ warning: logi FALSE
 
 Loading required package: viridisLite
-  |                                                                              |.....                                                                 |   8%
+  |                                                                              |.....                                                                 |   7%
    inline R code fragments
 
   |                                                                              |.......                                                               |  10%
@@ -218,143 +218,154 @@ The following object is masked from 'package:readr':
 
     col_factor
 
-  |                                                                              |.........                                                             |  13%
-   inline R code fragments
+  |                                                                              |.........                                                             |  12%
+  ordinary text without R code
 
-  |                                                                              |...........                                                           |  15%
+  |                                                                              |..........                                                            |  15%
 label: unnamed-chunk-2 (with options) 
-List of 3
+List of 4
  $ echo   : logi FALSE
  $ warning: logi FALSE
- $ results: chr "asis"
+ $ error  : logi FALSE
+ $ message: logi FALSE
 
-  |                                                                              |.............                                                         |  18%
+  |                                                                              |............                                                          |  17%
    inline R code fragments
 
-  |                                                                              |..............                                                        |  21%
+  |                                                                              |..............                                                        |  20%
 label: unnamed-chunk-3 (with options) 
 List of 3
  $ echo   : logi FALSE
  $ warning: logi FALSE
  $ results: chr "asis"
 
-  |                                                                              |................                                                      |  23%
+  |                                                                              |...............                                                       |  22%
+   inline R code fragments
+
+  |                                                                              |.................                                                     |  24%
+label: unnamed-chunk-4 (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ results: chr "asis"
+
+  |                                                                              |...................                                                   |  27%
   ordinary text without R code
 
-  |                                                                              |..................                                                    |  26%
-label: unnamed-chunk-4 (with options) 
+  |                                                                              |....................                                                  |  29%
+label: unnamed-chunk-5 (with options) 
 List of 4
  $ echo     : logi FALSE
  $ fig.width: num 10
  $ warning  : logi FALSE
  $ message  : logi FALSE
 
-  |                                                                              |....................                                                  |  28%
+  |                                                                              |......................                                                |  32%
    inline R code fragments
 
-  |                                                                              |......................                                                |  31%
-label: unnamed-chunk-5 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ warning: logi FALSE
- $ message: logi FALSE
-
-  |                                                                              |.......................                                               |  33%
-  ordinary text without R code
-
-  |                                                                              |.........................                                             |  36%
+  |                                                                              |........................                                              |  34%
 label: unnamed-chunk-6 (with options) 
 List of 3
  $ echo   : logi FALSE
  $ warning: logi FALSE
  $ message: logi FALSE
 
-  |                                                                              |...........................                                           |  38%
+  |                                                                              |..........................                                            |  37%
   ordinary text without R code
 
-  |                                                                              |.............................                                         |  41%
+  |                                                                              |...........................                                           |  39%
 label: unnamed-chunk-7 (with options) 
-List of 2
+List of 3
  $ echo   : logi FALSE
  $ warning: logi FALSE
+ $ message: logi FALSE
 
-  |                                                                              |...............................                                       |  44%
+  |                                                                              |.............................                                         |  41%
   ordinary text without R code
 
-  |                                                                              |................................                                      |  46%
+  |                                                                              |...............................                                       |  44%
 label: unnamed-chunk-8 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |..................................                                    |  49%
+  |                                                                              |................................                                      |  46%
   ordinary text without R code
 
-  |                                                                              |....................................                                  |  51%
+  |                                                                              |..................................                                    |  49%
 label: unnamed-chunk-9 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |......................................                                |  54%
+  |                                                                              |....................................                                  |  51%
   ordinary text without R code
 
-  |                                                                              |.......................................                               |  56%
+  |                                                                              |......................................                                |  54%
 label: unnamed-chunk-10 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |.........................................                             |  59%
+  |                                                                              |.......................................                               |  56%
   ordinary text without R code
 
-  |                                                                              |...........................................                           |  62%
+  |                                                                              |.........................................                             |  59%
 label: unnamed-chunk-11 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |.............................................                         |  64%
+  |                                                                              |...........................................                           |  61%
   ordinary text without R code
 
-  |                                                                              |...............................................                       |  67%
+  |                                                                              |............................................                          |  63%
 label: unnamed-chunk-12 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |................................................                      |  69%
+  |                                                                              |..............................................                        |  66%
   ordinary text without R code
 
-  |                                                                              |..................................................                    |  72%
+  |                                                                              |................................................                      |  68%
 label: unnamed-chunk-13 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |....................................................                  |  74%
+  |                                                                              |..................................................                    |  71%
   ordinary text without R code
 
-  |                                                                              |......................................................                |  77%
+  |                                                                              |...................................................                   |  73%
 label: unnamed-chunk-14 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |........................................................              |  79%
+  |                                                                              |.....................................................                 |  76%
   ordinary text without R code
 
-  |                                                                              |.........................................................             |  82%
+  |                                                                              |.......................................................               |  78%
 label: unnamed-chunk-15 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |...........................................................           |  85%
+  |                                                                              |........................................................              |  80%
   ordinary text without R code
 
-  |                                                                              |.............................................................         |  87%
+  |                                                                              |..........................................................            |  83%
 label: unnamed-chunk-16 (with options) 
+List of 2
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+
+  |                                                                              |............................................................          |  85%
+  ordinary text without R code
+
+  |                                                                              |.............................................................         |  88%
+label: unnamed-chunk-17 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
@@ -362,17 +373,17 @@ List of 2
   |                                                                              |...............................................................       |  90%
   ordinary text without R code
 
-  |                                                                              |.................................................................     |  92%
-label: unnamed-chunk-17 (with options) 
+  |                                                                              |.................................................................     |  93%
+label: unnamed-chunk-18 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
 
-  |                                                                              |..................................................................    |  95%
+  |                                                                              |...................................................................   |  95%
   ordinary text without R code
 
-  |                                                                              |....................................................................  |  97%
-label: unnamed-chunk-18 (with options) 
+  |                                                                              |....................................................................  |  98%
+label: unnamed-chunk-19 (with options) 
 List of 2
  $ echo   : logi FALSE
  $ warning: logi FALSE
@@ -383,7 +394,7 @@ List of 2
 
 output file: master.knit.md
 
-"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpqAz0VQ\rmarkdown-str5410a7d507e.html" 
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpAt1a4m\rmarkdown-str48085768109.html" 
 
 Output created: docs/index.html
 Warning messages:
@@ -539,4 +550,4 @@ The email message was sent successfully.
 > 
 > proc.time()
    user  system elapsed 
-  53.26    7.00   89.92 
+  32.90    4.10   67.93 

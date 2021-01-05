@@ -1,0 +1,12 @@
+name: master_shiny
+title: master_shiny
+username:
+account: jensenhu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3444997
+bundleId: 4061131
+url: https://jensenhu.shinyapps.io/master_shiny/
+when: 1609865377.07915
+asMultiple: FALSE
+asStatic: FALSE
