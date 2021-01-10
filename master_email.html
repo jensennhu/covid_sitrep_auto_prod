@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Interactive COVID-19 Report</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Interactive COVID-19 Report</h1>
+
+</div>
+
+
+<p>Good Morning:</p>
+<p>This is your daily COVID-19 report, sent on Sunday, January 10, 2021 at 7:55 AM (PST). Shown below is a current <strong>draft</strong> in continual development and error checking. Please feel free to reach out with suggestions or issues! Click here to review the <a href="https://jensennhu.github.io/covid_sitrep_auto_prod/">interactive report</a>. If you’re curious about the situation in other places in the USA (state/county level) or international locations, please click <a href="http://ec2-3-17-139-199.us-east-2.compute.amazonaws.com:3838/shiny_covid19_aws/"><strong>here</strong></a>.</p>
+<hr />
+<div id="usa-overall" class="section level3">
+<h3>USA Overall</h3>
+<blockquote>
+<p>As of yesterday, there has been a total of 22,242,385 cases of COVID-19 in the USA. This is a change of 252,056 (1.15%) new cases since the day prior. The 7 day moving average is currently 2.572e+05 new cases which is a -0.66% change since the day prior and 18.89% change since the week prior. The immediate trend is heading upward. Based on the addition of yesterday’s data, yesterday was not an inflection point (days since last inflection point: 9 –&gt; 2021-01-01).</p>
+</blockquote>
+<div id="day-moving-average-of-new-cases-and-deaths-in-the-us-2020-01-21-to-2021-01-09" class="section level4">
+<h4>7-day moving average of new cases and deaths in the US (2020-01-21 to 2021-01-09)</h4>
+<table width="100%" align="center">
+  <tr>
+    <td align="center">
+      <img src="data:image/png;base64,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" width="500" style="width:500px;"/>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<div id="state-consecutive-day-trends" class="section level3">
+<h3>State Consecutive Day Trends</h3>
+<blockquote>
+<p>Of the 51 US states monitored, <strong>35 (68.63%) </strong> show consecutive increase in their 7-day moving average of new COVID-19 cases for at least 7 days. <strong>0 (0%)</strong> show consecutive decrease for at least 7 days.</p>
+</blockquote>
+<div id="states-with-consecutive-increase-for-at-least-7-days" class="section level4">
+<h4><strong>35</strong> State(s) with Consecutive Increase for at least 7 days</h4>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Consecutive Days
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arizona </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 180px">137</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Jersey </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 135.328467153285px">103</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Utah </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 134.014598540146px">102</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Oklahoma </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 131.386861313869px">100</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Carolina</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 130.07299270073px">99</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Arkansas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 130.07299270073px">99</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Massachusetts </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 127.445255474453px">97</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fff900; font-family: verdana; font-size: 10; width: 50px">11</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Georgia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 122.189781021898px">93</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fff900; font-family: verdana; font-size: 10; width: 50px">11</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Alabama </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 122.189781021898px">93</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Kentucky </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 120.875912408759px">92</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Rhode Island </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 118.248175182482px">90</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fff600; font-family: verdana; font-size: 10; width: 50px">13</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">West Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 116.934306569343px">89</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Mississippi </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 112.992700729927px">86</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New York </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 110.36496350365px">84</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ff8c00; font-family: verdana; font-size: 10; width: 50px">85</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Indiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 109.051094890511px">83</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Carolina</span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 107.737226277372px">82</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Nevada </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 107.737226277372px">82</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Florida </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 101.167883211679px">77</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fff900; font-family: verdana; font-size: 10; width: 50px">11</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Texas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 95.9124087591241px">73</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Ohio </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 94.5985401459854px">72</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">New Mexico </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 90.6569343065694px">69</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Louisiana </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 82.7737226277372px">63</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fff900; font-family: verdana; font-size: 10; width: 50px">11</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Wisconsin </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 80.1459854014599px">61</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Missouri </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 78.8321167883212px">60</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Virginia </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 78.8321167883212px">60</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Illinois </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 76.2043795620438px">58</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Iowa </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 70.9489051094891px">54</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Maryland </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.3211678832117px">52</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Colorado </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 68.3211678832117px">52</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">7</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">South Dakota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 61.7518248175183px">47</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Washington </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 51.2408759124088px">39</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">7</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Michigan </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 47.2992700729927px">36</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffd00; font-family: verdana; font-size: 10; width: 50px">8</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">North Dakota </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 40.7299270072993px">31</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #ffff00; font-family: verdana; font-size: 10; width: 50px">7</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Vermont </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 35.4744525547445px">27</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffa00; font-family: verdana; font-size: 10; width: 50px">10</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">Hawaii </span>
+</td>
+<td style="text-align:right;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 1px; background-color: pink; width: 18.3941605839416px">14</span>
+</td>
+<td style="text-align:center;">
+<span style="display: inline-block; direction: rtl; border-radius: 4px; padding-right: 2px; background-color: #fffc00; font-family: verdana; font-size: 10; width: 50px">9</span>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="states-with-consecutive-decrease-for-at-least-7-days" class="section level4">
+<h4><strong>0</strong> State(s) with Consecutive Decrease for at least 7 days</h4>
+<center>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+State
+</th>
+<th style="text-align:right;">
+Cases per 100,000
+</th>
+<th style="text-align:center;">
+Consecutive Days
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="hospital-status-beta" class="section level3">
+<h3>Hospital Status (Beta)</h3>
+<blockquote>
+<p>On average, the current stress on ICUs across the country is <em>extreme</em>. Stress definitions can be found below:</p>
+</blockquote>
+<ul>
+<li><strong>low</strong>: less than 10% of ICU Usage<br />
+</li>
+<li><strong>moderate</strong>: 10-29% of ICU Usage<br />
+</li>
+<li><strong>high</strong>: 30-59% of ICU Usage</li>
+<li><strong>extreme</strong>: greater than 60% of ICU Usage</li>
+</ul>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+</center>
+</div>
+<div id="region-by-region" class="section level3">
+<h3>Region by Region</h3>
+<p>How to read the maps below:</p>
+<ul>
+<li><strong>Cases Higher</strong>: greater than or equal to 15 new cases per 100,000 people.<br />
+</li>
+<li><strong>Cases Lower</strong>: less than 15 new cases per 100,000 people.<br />
+</li>
+<li><strong>Rising</strong>: increase in the 7-day moving average, week over week.<br />
+</li>
+<li><strong>Decreasing</strong>: decrease in the 7-day moving average, week over week.<br />
+</li>
+<li><strong>Staying</strong>: no change in the 7-day moving average, week over weeks</li>
+</ul>
+<div id="western-us" class="section level4">
+<h4><strong>Western US</strong></h4>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+</center>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+</center>
+</div>
+<div id="southern-us" class="section level4">
+<h4><strong>Southern US</strong></h4>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+</center>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+</center>
+</div>
+<div id="midwestern-us" class="section level4">
+<h4><strong>Midwestern US</strong></h4>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+</center>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+</center>
+</div>
+<div id="northeastern-us" class="section level4">
+<h4><strong>Northeastern US</strong></h4>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+</center>
+<center>
+<img src="master_email_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+</center>
+</div>
+</div>
+<div id="other-resources" class="section level3">
+<h3>Other resources</h3>
+<p>Other resources to check out:</p>
+<ul>
+<li><a href="https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html">See How All 50 States Are Reopening (and Closing Again)</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html">NYtimes Visualizations for Case Tracking in U.S.</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/science/coronavirus-drugs-treatments.html">Coronavirus Drug and Treatment Tracker</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/science/coronavirus-vaccine-tracker.html">Coronavirus Vaccine Tracker</a></li>
+<li><a href="https://covid19.healthdata.org/united-states-of-america?view=total-deaths&amp;tab=trend">US Projections</a></li>
+</ul>
+<hr />
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
