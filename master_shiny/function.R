@@ -1,22 +1,26 @@
 # load libraries
-library(tidyverse) # data manipulation and visualization
+#library(tidyverse) # data manipulation and visualization
 library(dplyr) # data manipulation
-library(lubridate) # dates
-library(htmlTable) # convert table to html
-library(data.table) # formatting 
-library(knitr) # kniting 
+#library(lubridate) # dates
+#library(data.table) # formatting 
+#library(knitr) # kniting 
 library(ggplot2) # visualizations
-library(matrixStats) # stats
-library(plotly) # visualizations
+#library(matrixStats) # stats
 library(purrr) # functional prog
-library(expss) # format labeling 
-library(zoo) # working w/time series data
-library(blastula) #compose and send emails 
-library(ggpubr) # setting multiple plots on one page
-library(gridExtra)
+#library(expss) # format labeling 
+#library(zoo) # working w/time series data
+#library(blastula) #compose and send emails 
+#library(ggpubr) # setting multiple plots on one page
+#library(gridExtra)
 library(TTR)
 
-load("loaded.Rdata")
+us_states <- readRDS("us_states.Rdata") 
+us_counties <- readRDS("us_counties.Rdata")
+country <- readRDS("country.Rdata")
+province <- readRDS("province.Rdata")
+covid_state <- readRDS("covid_state.Rdata")
+covid_county <- readRDS("covid_county.Rdata")
+international <- readRDS("international.Rdata")
 
 # create metric views for domestic(state, county) and international 
 state_fun <- function(place){
@@ -27,7 +31,7 @@ state_fun <- function(place){
         } else if (place %in% province){
           filter(international, international$`Province/State` == {place})
         } else if (place %in% country){
-          filter(international, international$`Country/Region` == {place})
+          filter(international, international$`Country/Region` == {place}, international$`Province/State` == "")
         } else {
           place
         }) %>% 
@@ -78,15 +82,27 @@ email_body_func <- function(.data){
          ", there has been a total of ", 
          formatC(total_reported$cases, big.mark=","), 
          " cases of COVID-19 in " ,
+         # county
          (if ("county" %in% colnames(.data)){
            paste0(.data$county[1], ".")
-         } else if ("state" %in% colnames(.data)){
-           paste0(.data$state[1], ".")
-         } else if ("Lat" %in% colnames(.data)){
-           paste0(.data$Province.State[1], ", ", .data$Country.Region[1], ".")
-         } else {
-           "the USA."
-         }),
+           # state
+           } else if ("state" %in% colnames(.data)){
+             paste0(.data$state[1], ".")
+             # daily_new overall usa 
+             } else if (quote(.data) == "daily_new"){
+               "the USA."
+               # enter nested if for international dataset
+               } else if ("Lat" %in% colnames(.data)){
+                 # country only
+                 if (.data$Province.State[1] == "") {
+                   paste0(.data$Country.Region[1], ".")  
+                   # province only
+                 } else if (.data$Province.State[1] != "") {
+                   paste0(.data$Province.State[1], ", ", .data$Country.Region[1], ".") 
+                 }
+                   } else {
+                     "the USA."
+                   }),
          " This is a change of ",
          formatC(total_reported$cases_new, big.mark=","),
          " (", round(total_reported$cases_pct_growth, 2),"%)",
@@ -111,6 +127,10 @@ email_body_func <- function(.data){
 }
 
 
+
+
+
+
 mavg_plot_func <- function(.data){
   require(scales)
   .data %>% 
@@ -127,7 +147,7 @@ mavg_plot_func <- function(.data){
     #ggtitle("7-day Moving Average of \nNew Cases")+
     xlab("Date") +
     ylab("New Cases") +
-    scale_y_continuous(labels = comma) + 
+    scale_y_continuous(labels = scales::number_format(accuracy = 1, big.mark = ",")) + 
     scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month") +
     theme_classic() +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -151,31 +171,6 @@ mavg_plot_func <- function(.data){
   #   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
   # grid.arrange(p1, p2, nrow = 1)
-}
-
-
-body_func <- function(test){
-  # print email body for specified state
-  print(state_set_ebody[[{test}]])  
-  # print plot of 7-day mavg of new cases
-  print(mavg_plot_func(state_set[[{test}]]))
-}
-
-
-# functions to determine days of consecutive increases/decreases
-consec_incr <- function(.data){
-  # grab vector
-  vector <- .data$sign
-  # grab row # of last sign then subtract by last row where not decreasing
-  days <- which(.data$date == max(.data$date)) - max(which(vector == -1 | vector == 0))
-  data.frame(state = unique(.data$state), days,  cases_week_mavg = .data$cases_week_mavg[.data$date == max(.data$date)] )
-}
-consec_dcr <- function(.data){
-  # grab vector
-  vector <- .data$sign
-  # grab row # of last sign then subtract by last row where not increasing
-  days <- which(.data$date == max(.data$date)) - max(which(vector == 1 | vector == 0))
-  data.frame(state = unique(.data$state), days,  cases_week_mavg = .data$cases_week_mavg[.data$date == max(.data$date)])
 }
 
 
