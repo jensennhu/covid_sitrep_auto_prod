@@ -88,10 +88,6 @@ The following object is masked from 'package:graphics':
     layout
 
 
-Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
- To return to the console output, use 'expss_output_default()'.
-
-
 Attaching package: 'expss'
 
 The following objects are masked from 'package:data.table':
@@ -383,7 +379,7 @@ List of 2
 
 output file: master.knit.md
 
-"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpwDiRBJ\rmarkdown-str53b461c22d0.html" 
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpwJt917\rmarkdown-str50643f124f6a.html" 
 
 Output created: docs/index.html
 Warning messages:
@@ -399,7 +395,6 @@ Warning messages:
 > master_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/family.Rmd")
 There were 14 warnings (use warnings() to see them)
 > friends_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends.Rmd")
-[WARNING] Could not parse YAML metadata at line 307 column 1: not an object
 There were 14 warnings (use warnings() to see them)
 > friends_jc_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_jc.Rmd")
 Warning messages:
@@ -484,7 +479,7 @@ The email message was sent successfully.
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
 +     to = c("jensennhu@gmail.com"),
-+   #  bcc = c("brian.j.hung@gmail.com", "belindacheng918@gmail.com", "bryanthua@gmail.com", "christine.cerrada@gmail.com", "themeanyhead@gmail.com", "enochkim92@gmail.com", "minhtam.nguyen@mattel.com", "casey.m.ching@hawaii.gov"), 
++     #bcc = c("brian.j.hung@gmail.com", "belindacheng918@gmail.com", "bryanthua@gmail.com", "christine.cerrada@gmail.com", "themeanyhead@gmail.com", "enochkim92@gmail.com", "minhtam.nguyen@mattel.com", "casey.m.ching@hawaii.gov"), 
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -552,4 +547,4 @@ The email message was sent successfully.
 > 
 > proc.time()
    user  system elapsed 
-  46.98    4.39   73.06 
+  42.43    4.53   70.51 
