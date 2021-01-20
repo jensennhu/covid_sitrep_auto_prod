@@ -166,34 +166,16 @@ Warning messages:
 > source("function.R")
 > 
 > # render Rmd into interactive report on Github
-> rmarkdown::render("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/master.Rmd", output_file = "./docs/index.html")
-
-
-processing file: master.Rmd
-  |                                                                              |                                                                      |   0%  |                                                                              |..                                                                    |   3%
-  ordinary text without R code
-
-  |                                                                              |....                                                                  |   5%
-label: unnamed-chunk-1 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ message: logi FALSE
- $ warning: logi FALSE
-
+> #rmarkdown::render("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/master.Rmd", output_file = "./docs/index.html")
+> 
+> # shiny
+> #rsconnect::setAccountInfo(name = "jensenhu", token = "9650B87FCE6E5BB0F7529C4ACCF7308B", secret = "4gJjRukUvhCfv979C2zJMdZXnp0vY6j1rwkSNQf0")
+> #rsconnect::deployApp(appDir = paste0(getwd(),"/master_shiny"), appFiles = c("app.R", "function.R", "loaded.Rdata"), appName = "master_shiny", launch.browser = F, forceUpdate = T)
+> 
+> 
+> # render Rmd into email-able html format
+> master_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/family.Rmd")
 Loading required package: viridisLite
-  |                                                                              |.....                                                                 |   8%
-   inline R code fragments
-
-  |                                                                              |.......                                                               |  10%
-label: fig1 (with options) 
-List of 6
- $ fig.height: num 5
- $ fig.width : num 10
- $ fig.align : chr "center"
- $ echo      : logi FALSE
- $ warning   : logi FALSE
- $ message   : logi FALSE
-
 Loading required package: scales
 
 Attaching package: 'scales'
@@ -214,246 +196,16 @@ The following object is masked from 'package:readr':
 
     col_factor
 
-  |                                                                              |.........                                                             |  13%
-   inline R code fragments
-
-  |                                                                              |...........                                                           |  15%
-label: unnamed-chunk-2 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ warning: logi FALSE
- $ results: chr "asis"
-
-  |                                                                              |.............                                                         |  18%
-   inline R code fragments
-
-  |                                                                              |..............                                                        |  21%
-label: unnamed-chunk-3 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ warning: logi FALSE
- $ results: chr "asis"
-
-  |                                                                              |................                                                      |  23%
-  ordinary text without R code
-
-  |                                                                              |..................                                                    |  26%
-label: unnamed-chunk-4 (with options) 
-List of 4
- $ echo     : logi FALSE
- $ fig.width: num 10
- $ warning  : logi FALSE
- $ message  : logi FALSE
-
-  |                                                                              |....................                                                  |  28%
-   inline R code fragments
-
-  |                                                                              |......................                                                |  31%
-label: unnamed-chunk-5 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ warning: logi FALSE
- $ message: logi FALSE
-
-  |                                                                              |.......................                                               |  33%
-  ordinary text without R code
-
-  |                                                                              |.........................                                             |  36%
-label: unnamed-chunk-6 (with options) 
-List of 3
- $ echo   : logi FALSE
- $ warning: logi FALSE
- $ message: logi FALSE
-
-  |                                                                              |...........................                                           |  38%
-  ordinary text without R code
-
-  |                                                                              |.............................                                         |  41%
-label: unnamed-chunk-7 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |...............................                                       |  44%
-  ordinary text without R code
-
-  |                                                                              |................................                                      |  46%
-label: unnamed-chunk-8 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |..................................                                    |  49%
-  ordinary text without R code
-
-  |                                                                              |....................................                                  |  51%
-label: unnamed-chunk-9 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |......................................                                |  54%
-  ordinary text without R code
-
-  |                                                                              |.......................................                               |  56%
-label: unnamed-chunk-10 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |.........................................                             |  59%
-  ordinary text without R code
-
-  |                                                                              |...........................................                           |  62%
-label: unnamed-chunk-11 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |.............................................                         |  64%
-  ordinary text without R code
-
-  |                                                                              |...............................................                       |  67%
-label: unnamed-chunk-12 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |................................................                      |  69%
-  ordinary text without R code
-
-  |                                                                              |..................................................                    |  72%
-label: unnamed-chunk-13 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |....................................................                  |  74%
-  ordinary text without R code
-
-  |                                                                              |......................................................                |  77%
-label: unnamed-chunk-14 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |........................................................              |  79%
-  ordinary text without R code
-
-  |                                                                              |.........................................................             |  82%
-label: unnamed-chunk-15 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |...........................................................           |  85%
-  ordinary text without R code
-
-  |                                                                              |.............................................................         |  87%
-label: unnamed-chunk-16 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |...............................................................       |  90%
-  ordinary text without R code
-
-  |                                                                              |.................................................................     |  92%
-label: unnamed-chunk-17 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |..................................................................    |  95%
-  ordinary text without R code
-
-  |                                                                              |....................................................................  |  97%
-label: unnamed-chunk-18 (with options) 
-List of 2
- $ echo   : logi FALSE
- $ warning: logi FALSE
-
-  |                                                                              |......................................................................| 100%
-  ordinary text without R code
-
-
-output file: master.knit.md
-
-"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS master.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output ./docs/index.html --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\pagebreak.lua" --lua-filter "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmarkdown\lua\latex-div.lua" --self-contained --standalone --section-divs --template "C:\Users\jense\Documents\R\win-library\4.0\rmarkdown\rmd\h\default.html" --highlight-style zenburn --variable "theme:bootstrap" --include-in-header "C:\Users\jense\AppData\Local\Temp\RtmpwJt917\rmarkdown-str50643f124f6a.html" 
-
-Output created: docs/index.html
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-> 
-> # shiny
-> #rsconnect::setAccountInfo(name = "jensenhu", token = "9650B87FCE6E5BB0F7529C4ACCF7308B", secret = "4gJjRukUvhCfv979C2zJMdZXnp0vY6j1rwkSNQf0")
-> #rsconnect::deployApp(appDir = paste0(getwd(),"/master_shiny"), appFiles = c("app.R", "function.R", "loaded.Rdata"), appName = "master_shiny", launch.browser = F, forceUpdate = T)
-> 
-> 
-> # render Rmd into email-able html format
-> master_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/family.Rmd")
+[WARNING] Could not parse YAML metadata at line 224 column 1: not an object
 There were 14 warnings (use warnings() to see them)
 > friends_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends.Rmd")
 There were 14 warnings (use warnings() to see them)
-> friends_jc_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_jc.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-7: Removed 1 rows containing missing values (position_stack). 
-8: Removed 7 row(s) containing missing values (geom_path). 
-> friends_bl_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_bl.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-> friends_eh_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_eh.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-7: Removed 1 rows containing missing values (position_stack). 
-8: Removed 7 row(s) containing missing values (geom_path). 
-9: Removed 1 rows containing missing values (position_stack). 
-10: Removed 7 row(s) containing missing values (geom_path). 
-> friends_sw_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_sw.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-> friends_ep_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_ep.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-> friends_bk_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_bk.Rmd")
-Warning messages:
-1: Removed 1 rows containing missing values (position_stack). 
-2: Removed 7 row(s) containing missing values (geom_path). 
-3: Removed 1 rows containing missing values (position_stack). 
-4: Removed 7 row(s) containing missing values (geom_path). 
-5: Removed 1 rows containing missing values (position_stack). 
-6: Removed 7 row(s) containing missing values (geom_path). 
-7: Removed 1 rows containing missing values (position_stack). 
-8: Removed 7 row(s) containing missing values (geom_path). 
-9: Removed 1 rows containing missing values (position_stack). 
-10: Removed 7 row(s) containing missing values (geom_path). 
+> # friends_jc_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_jc.Rmd")
+> # friends_bl_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_bl.Rmd")
+> # friends_eh_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_eh.Rmd")
+> # friends_sw_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_sw.Rmd")
+> # friends_ep_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_ep.Rmd")
+> # friends_bk_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends_bk.Rmd")
 > 
 > # Get a nicely formatted date/time string
 > date_time <- add_readable_time()
@@ -469,7 +221,7 @@ Warning messages:
 +   smtp_send(
 +     from = "hu.jensenhu@gmail.com",
 +     to = "jensennhu@gmail.com",
-+    # bcc = c("eddiehhu@gmail.com",  "tiffwho@gmail.com", "adri.hu@gmail.com", "helennghu@gmail.com", "jjchang7@gmail.com", "brianjkim05@gmail.com", "roblam@gmail.com", "kristinawritess@gmail.com"),
++     #bcc = c("eddiehhu@gmail.com",  "tiffwho@gmail.com", "adri.hu@gmail.com", "helennghu@gmail.com", "jjchang7@gmail.com", "brianjkim05@gmail.com", "roblam@gmail.com", "kristinawritess@gmail.com"),
 +     subject = paste0("COVID-19 Report: ", date_time),
 +     credentials = creds_key(id = "gmail")
 +   )
@@ -484,67 +236,56 @@ The email message was sent successfully.
 +     credentials = creds_key(id = "gmail")
 +   )
 The email message was sent successfully.
+> # 
+> # friends_jc_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to = c("jensennhu@gmail.com", "jtnc02@gmail.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
+> # 
+> # friends_bl_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to = c("jensennhu@gmail.com", "biancalouie@gmail.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
+> # 
+> # friends_eh_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to = c("jensennhu@gmail.com", "emilyannhannah@gmail.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
+> # 
+> # friends_sw_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to =  c("jensennhu@gmail.com", "swang165@gmail.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
+> # 
+> # friends_ep_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to = c("jensennhu@gmail.com", "Ellapestine@gmail.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
+> # 
+> # friends_bk_body %>%
+> #   smtp_send(
+> #     from = "hu.jensenhu@gmail.com",
+> #     to = c("jensennhu@gmail.com", "hello@bkelz.com"),
+> #     subject = paste0("COVID-19 Report: ", date_time),
+> #     credentials = creds_key(id = "gmail")
+> #   )
 > 
-> friends_jc_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"jtnc02@gmail.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
-> 
-> friends_bl_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"biancalouie@gmail.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
-> 
-> friends_eh_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"emilyannhannah@gmail.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
-> 
-> friends_sw_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to =  c("jensennhu@gmail.com"),
-+     #"swang165@gmail.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
-> 
-> friends_ep_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"Ellapestine@gmail.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
-> 
-> friends_bk_body %>% 
-+   smtp_send(
-+     from = "hu.jensenhu@gmail.com",
-+     to = c("jensennhu@gmail.com"),
-+     #"hello@bkelz.com"), 
-+     subject = paste0("COVID-19 Report: ", date_time),
-+     credentials = creds_key(id = "gmail")
-+   )
-The email message was sent successfully.
 > 
 > proc.time()
    user  system elapsed 
-  42.43    4.53   70.51 
+  20.43    1.82   32.01 
