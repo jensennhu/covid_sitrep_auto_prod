@@ -88,6 +88,10 @@ The following object is masked from 'package:graphics':
     layout
 
 
+Use 'expss_output_viewer()' to display tables in the RStudio Viewer.
+ To return to the console output, use 'expss_output_default()'.
+
+
 Attaching package: 'expss'
 
 The following objects are masked from 'package:data.table':
@@ -196,7 +200,7 @@ The following object is masked from 'package:readr':
 
     col_factor
 
-[WARNING] Could not parse YAML metadata at line 224 column 1: not an object
+[WARNING] Could not parse YAML metadata at line 225 column 1: not an object
 There were 14 warnings (use warnings() to see them)
 > friends_body <- render_email("C:/Users/jense/Desktop/Projects/covid_email_report_production/test_automation/friends.Rmd")
 There were 14 warnings (use warnings() to see them)
@@ -288,4 +292,4 @@ The email message was sent successfully.
 > 
 > proc.time()
    user  system elapsed 
-  20.43    1.82   32.01 
+  20.23    1.68   27.59 
